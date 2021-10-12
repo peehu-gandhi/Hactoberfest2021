@@ -1,0 +1,43 @@
+class Solution {
+    
+    ListNode* Reverse(ListNode* head) {
+        ListNode* Next = NULL, *prev = NULL;
+        ListNode* current = head;
+        while(current != NULL){
+            Next = current->next;
+            current->next = prev;
+            prev = current;
+            current = Next;
+        }
+        return prev;
+    }
+    
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        ListNode* temp = head;
+        int cnt = 0;
+        while(temp != NULL){
+            cnt++;
+            temp = temp->next;
+        }
+        vector<int> res(cnt,0);
+        temp = Reverse(head);
+        stack<int> s;
+        int i=0;
+        while(temp != NULL){
+            bool flag = true;
+            while(!s.empty() && flag){
+                if(s.top()>temp->val) {
+                    res[i]=s.top();
+                    flag=false;
+                }
+                else s.pop();
+            }
+            s.push(temp->val);
+            temp = temp->next;
+            i++;
+        }
+        reverse(res.begin(),res.end());
+        return res;
+    }
+};
