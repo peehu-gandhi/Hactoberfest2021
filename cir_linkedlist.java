@@ -24,7 +24,6 @@ class cir_linkedlist
         q.rear = temp;
         q.rear.link = q.front;
     }
-                     // Function to delete element from Circular Queue
     static int deQueue(Queue q)
     {
         if (q.front == null) 
@@ -52,11 +51,10 @@ class cir_linkedlist
         return value;
     }
   
-    // Function displaying the elements of Circular Queue
     static void displayQueue(Queue q)
     {
         Node temp = q.front;
-        System.out.printf("\nElements in Circular Queue are: ");
+        System.out.printf("Elements in the circular queue are: ");
         while (temp.link != q.front) 
         {
             System.out.printf("%d ", temp.data);
@@ -76,8 +74,7 @@ class cir_linkedlist
         enQueue(q, 14);
         enQueue(q, 22);
         enQueue(q, 6);
-  
-        // Display elements present in Circular Queue
+ 
         displayQueue(q);
   
         // Deleting elements from Circular Queue
