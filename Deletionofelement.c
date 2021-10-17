@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main()
 {
    int array[100], position, c, n;
@@ -28,3 +29,4 @@ int main()
    }
 
    return 0;
+}
