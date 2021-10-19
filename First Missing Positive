@@ -1,0 +1,22 @@
+Given an unsorted integer array nums, return the smallest missing positive integer.
+
+You must implement an algorithm that runs in O(n) time and uses constant extra space.
+
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        sort(nums.begin(), nums.end(), [](int a, int b){
+            return a>0 && (b<=0 ||(b>0 && a<b));
+        });
+        int a = 1;
+        for (int i = 0; i<nums.size(); i++) {
+            if(nums[i]<1) 
+                break;
+            else if(nums[i] == a) 
+                a++;
+            else if(nums[i] != a - 1 || nums[i] != nums[i-1])
+                return a;
+        }
+        return a;
+    }
+};
