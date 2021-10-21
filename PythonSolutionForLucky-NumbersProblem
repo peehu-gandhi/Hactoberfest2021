@@ -1,0 +1,15 @@
+# question link : https://codeforces.com/problemset/problem/110/A
+# basically, we need to find the no. of 4's and 7's in the given number and then tell whether the count is lucky number or no:);
+#here since n is <=10^18, there will be at max 19 digits. so no of lucky numbers till 19 is only 2 i.e 4 and 7! so easy. just count no of digits which are either 4 or 7
+# and if the count is either 4 or 7 then print "YES" else "NO";
+# code:
+n = input()    #take input
+count = 0           # start count with 0    
+for c in n:                    # iterate over the number n and increase the count by 1 if the digit is either 4 or 7;
+    if c == '4' or c == '7':
+        count += 1
+if(count==4 or count==7):         
+    print("YES") 
+    
+else:
+    print ("NO")
